@@ -4,8 +4,17 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-app.MapStaticAssets();          // wwwroot içindeki dosyaları sun
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+
+app.MapStaticAssets(); // Enable static assets from wwwroot (images, JS, CSS)
 
 app.MapDefaultControllerRoute();
+
+// app.MapControllerRoute(
+//     name: "default",
+//     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
