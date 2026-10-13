@@ -1,0 +1,8 @@
+INSERT INTO Items (Name, Price, Description, ImageUrl) VALUES ('Pizza', 150, 'Delicious Italian dish with a thin crust topped with tomato sauce, cheese, and various toppings.', '/images/pizza.jpg');
+INSERT INTO Items (Name, Price, Description, ImageUrl) VALUES ('Fried Chicken Leg', 20, 'Crispy and succulent chicken leg that is deep-fried to perfection, often served as a popular fast food item.', '/images/chickenleg.jpg');
+INSERT INTO Items (Name, Price, Description, ImageUrl) VALUES ('French Fries', 50, 'Crispy, golden-brown potato slices seasoned with salt and often served as a popular side dish or snack.', '/images/frenchfries.jpg');
+INSERT INTO Items (Name, Price, Description, ImageUrl) VALUES ('Grilled Ribs', 250, 'Tender and flavorful ribs grilled to perfection, usually served with barbecue sauce.', '/images/ribs.jpg');
+INSERT INTO Items (Name, Price, Description, ImageUrl) VALUES ('Tacos', 150, 'Tortillas filled with various ingredients such as seasoned meat, vegetables, and salsa, folded into a delicious handheld meal.', '/images/tacos.jpg');
+INSERT INTO Items (Name, Price, Description, ImageUrl) VALUES ('Fish and Chips', 180, 'Classic British dish featuring battered and deep-fried fish served with thick-cut fried potatoes.', '/images/fishandchips.jpg');
+INSERT INTO Items (Name, Price, Description, ImageUrl) VALUES ('Cider', 50, 'Refreshing alcoholic beverage made from fermented apple juice, available in various flavors.', '/images/cider.jpg');
+INSERT INTO Items (Name, Price, Description, ImageUrl) VALUES ('Coke', 30, 'Popular carbonated soft drink known for its sweet and refreshing taste.', '/images/coke.jpg');
