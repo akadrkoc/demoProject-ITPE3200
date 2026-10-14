@@ -486,3 +486,7 @@ $RECYCLE.BIN/
 *.db
 *.db-shm
 *.db-wal
+
+# Serilog log files
+**/Logs/
+*.log
