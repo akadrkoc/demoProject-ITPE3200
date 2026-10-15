@@ -4,17 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - My Shop</title>
-    <script type="importmap"></script>
-
-    <!-- Bootstrap ve jQuery (LibMan) -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <script src="~/lib/jquery/dist/jquery.min.js" defer></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
-
-    <!-- Client-side validation -->
-    <script src="~/lib/jquery-validation/jquery.validate.min.js" defer></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" defer></script>
-
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MyShop.styles.css" asp-append-version="true" />
 </head>
@@ -30,7 +20,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Item" asp-action="Table">Items</a>
@@ -42,16 +32,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Table">Orders</a>
                         </li>
                     </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-        <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="Table">Customers</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Table">Orders</a>
-    </li>
-</ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
@@ -63,8 +44,11 @@
         </main>
     </div>
 
-    
-    <script src="~/js/site.js" asp-append-version="true" defer></script>
+    <!-- Global Base Scripts (Loaded at bottom of body) -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- Page-Specific Scripts (Includes _ValidationScriptsPartial on form views) -->
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
