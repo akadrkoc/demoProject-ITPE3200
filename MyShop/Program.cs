@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using MyShop.DAL;
 using Serilog;
 using Serilog.Events; // Required for LogEventLevel
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,23 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ItemDbContext>(options => {
     options.UseSqlite(
         builder.Configuration["ConnectionStrings:ItemDbContextConnection"]);
+});
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => {
+    options.SignIn.RequireConfirmedAccount = false; // (disable email confirmation requirement for easy local testing)
+}).AddEntityFrameworkStores<ItemDbContext>();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+    options.LogoutPath = "/Account/Logout";
+    options.AccessDeniedPath = "/Account/Login";
+});
+
+builder.Services.AddSession(options => {
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
 });
 
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
@@ -35,6 +53,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapStaticAssets(); // Enable static assets from wwwroot (images, JS, CSS)
+app.UseSession(); // Add Session Middleware (Must be placed before UseAuthentication)
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapDefaultControllerRoute();
 

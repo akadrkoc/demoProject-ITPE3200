@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using MyShop.ViewModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyShop.DAL;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MyShop.Controllers;
 
@@ -23,6 +24,7 @@ public class OrderController : Controller
     }
 
     [HttpGet]
+    [Authorize]
     public async Task<IActionResult> CreateOrderItem()
     {
         var items = await _itemDbContext.Items.ToListAsync();
@@ -47,6 +49,7 @@ public class OrderController : Controller
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> CreateOrderItem(OrderItem orderItem)
     {
         try
